@@ -41,8 +41,7 @@ pub fn parse_args(a []string) Args {
     args := a.slice(1, a.len)
 
     mut parsed := Args{'', []Flag, []string}
-    
-    // TODO
+
     for i := 0; i < args.len; i++ {
 
         prev := if i-1 <= 0 { '' } else { args[i-1] }
