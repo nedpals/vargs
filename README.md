@@ -1,4 +1,4 @@
-# v-args 0.1
+# v-args 0.1.1
 V library for parsing arguments from argv-like arrays (like `os.args`). Ported from [this file](https://github.com/nedpals/kuman/blob/master/src/parser.ts) which was originally written on Typescript.
 
 ```go
@@ -12,7 +12,7 @@ fn main() {
     println(args.str())
     println(args.command)
     println(args.unknown[0])
-    println('with? ${args[0].value}')
+    println('with? ${args.options.get('with')}')
 }
 ```
 
@@ -26,6 +26,11 @@ fn main() {
 
 ## Installation
 Clone the repo and see [https://vlang.io/docs#modules](https://vlang.io/docs#modules) for instructions.
+
+## Notes
+1. The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
+2. Options will turn into `maps` in the future once `maps` will be fully implemented by V.
+3. `args.options.get_flag()` returns the full Flag struct while `args.options.get()` returns the value of the specified option.
 
 ## Contributing
 
