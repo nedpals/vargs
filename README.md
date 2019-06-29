@@ -29,7 +29,7 @@ Clone the repo and see [https://vlang.io/docs#modules](https://vlang.io/docs#mod
 
 ## Contributing
 
-1. Fork it (<https://github.com/nedpals/mangadex-api/fork>)
+1. Fork it (<https://github.com/nedpals/v-args/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
