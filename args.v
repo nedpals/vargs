@@ -79,6 +79,11 @@ pub fn parse_args(a []string) Args {
     return parsed
 }
 
+pub fn (v Flag) str() string {
+    return '\{ name: ${v.name}, value: ${v.value} \}'
+}
+
+
 pub fn (a []Flag) str() string {
     mut arr := []string
 
