@@ -44,7 +44,6 @@ pub fn parse_args(a []string) Args {
     
     // TODO
     for i := 0; i < args.len; i++ {
-        println('${i.str()}')
 
         prev := if i-1 <= 0 { '' } else { args[i-1] }
         current := args[i]
