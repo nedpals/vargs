@@ -82,8 +82,8 @@ pub fn parse_args(a []string) Args {
 pub fn (a []Flag) str() string {
     mut arr := []string
 
-    for i := 0; i < v.len; i++ {
-        arr << v[i].str()
+    for i := 0; i < a.len; i++ {
+        arr << a[i].str()
     }
 
     return arr.str()
