@@ -94,24 +94,24 @@ pub fn (a []Flag) str() string {
     return arr.str()
 }
 
-pub fn (a []Flag) get(name string) string {
+pub fn (a []Flag) get(name string) ?string {
     for option in a {
         if option.name == name {
             return option.value
         }
     }
 
-    return error('Option $name not found.')
+    return error('Option ${name} not found.')
 }
 
-pub fn (a []Flag) get_flag(name string) Flag {
+pub fn (a []Flag) get_flag(name string) ?Flag {
     for option in a {
         if option.name == name {
             return option
         }
     }
 
-    return error('Option $name not found.')
+    return error('Option ${name} not found.')
 }
 
 pub fn (v Args) str() string {
