@@ -7,12 +7,12 @@ import args
 import os
 
 fn main() {
-    args := parse_args(os.args)
+    _args := args.parse(os.args)
 
-    println(args.str())
-    println(args.command)
-    println(args.unknown[0])
-    println('with? ${args.options.get('with')}')
+    println(_args.str())
+    println(_args.command)
+    println(_args.unknown[0])
+    println('with? ${_args.options.get('with')}')
 }
 ```
 
