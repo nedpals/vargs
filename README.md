@@ -29,7 +29,7 @@ Clone the repo and see [https://vlang.io/docs#modules](https://vlang.io/docs#mod
 
 ## Notes
 1. The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
-2. Options will turn into `maps` in the future once `maps` will be fully implemented by V.
+2. Options will turn into `maps` in the future once `maps` will be fully implemented in V.
 3. `args.options.get_flag()` returns the full Flag struct while `args.options.get()` returns the value of the specified option.
 
 ## Contributing
