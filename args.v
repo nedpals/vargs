@@ -38,7 +38,7 @@ fn detect_hypen_args(v string) bool {
 }
 
 pub fn parse_args(a []string) Args {
-    args := args_array.slice(1, args_array.len)
+    args := a.slice(1, a.len)
 
     mut parsed := Args{'', []Flag, []string}
     
