@@ -1,4 +1,4 @@
-# v-args
+# v-args 0.1
 V library for parsing arguments from argv-like arrays (like `os.args`). Ported from [this file](https://github.com/nedpals/kuman/blob/master/src/parser.ts) which was originally written on Typescript.
 
 ```go

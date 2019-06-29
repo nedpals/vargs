@@ -1,3 +1,11 @@
+/**
+ * V-Args 0.1
+ * https://github.com/nedpals/v-args
+ * 
+ * (c) 2019 Ned Palacios and its contributors.
+ */
+
+
 fn parse_test() {
     test_arr := ['hello', '-f', 'bar', '--foo', 'baz', '--lol=yey', '-t=test', '123']
 

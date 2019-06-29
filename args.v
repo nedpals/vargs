@@ -1,5 +1,5 @@
 /**
- * V-Args
+ * V-Args 0.1
  * https://github.com/nedpals/v-args
  * 
  * (c) 2019 Ned Palacios and its contributors.
