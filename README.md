@@ -25,7 +25,10 @@ fn main() {
 ```
 
 ## Installation
-Clone the repo and see [https://vlang.io/docs#modules](https://vlang.io/docs#modules) for instructions.
+1. Clone the repo. (`git clone https://github.com/nedpals/v-args args`)
+2. Copy the folder inside the `vlib` folder.*
+
+**\*Note: The `vlib` folder is located where your V compiler is also located.**
 
 ## Notes
 1. The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
