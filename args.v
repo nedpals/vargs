@@ -61,32 +61,13 @@ pub fn parse(a []string) Args {
                 parsed.options[arg[0]] = arg[1]
     }
 
+            if arg.len == 1 && next.len == 0 {
+                parsed.options[arg[0]] = ''
+}
+        }
+    }
+
     return parsed
-}
-}
-    }
-
-    return arr.str()
-}
-
-pub fn (a []Flag) get(name string) ?string {
-    for option in a {
-        if option.name == name {
-            return option.value
-        }
-    }
-
-    return error('Option ${name} not found.')
-}
-
-pub fn (a []Flag) get_flag(name string) ?Flag {
-    for option in a {
-        if option.name == name {
-            return option
-        }
-    }
-
-    return error('Option ${name} not found.')
 }
 
 pub fn (v Args) str() string {
