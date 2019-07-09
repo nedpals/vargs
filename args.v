@@ -7,15 +7,10 @@
 
 module args
 
-struct Flag {
-    name string
-    value string
-}
-
 struct Args {
 pub mut:
     command string
-    options []Flag
+    options map[string]string
     unknown []string
 }
 
@@ -40,7 +35,7 @@ fn detect_hypen_args(v string) bool {
 pub fn parse(a []string) Args {
     args := a.slice(1, a.len)
 
-    mut parsed := Args{'', []Flag, []string}
+    mut parsed := Args{'', map[string]string{}, []string}
 
     for i := 0; i < args.len; i++ {
 
@@ -53,12 +48,7 @@ pub fn parse(a []string) Args {
                 parsed.command = current
             }
 
-            if i != 0 && detect_hypen_args(prev) {
-                prevArg := parse_hypen_args(string(prev))
-                option := Flag{prevArg[0], current}
-
-                parsed.options << option
-            }
+            parsed.options[prevArg[0]] = current
         }
 
         if i != 0 && noHypens {
@@ -69,26 +59,13 @@ pub fn parse(a []string) Args {
             arg := parse_hypen_args(string(current))
             mut val := ''
 
-            if (arg.len == 2) {
-                val = arg[1]
-                parsed.options << Flag{arg[0], val}
-            }
-        }
+            if arg.len == 2 {
+                parsed.options[arg[0]] = arg[1]
     }
 
     return parsed
 }
-
-pub fn (v Flag) str() string {
-    return '\{ name: ${v.name}, value: ${v.value} \}'
 }
-
-
-pub fn (a []Flag) str() string {
-    mut arr := []string
-
-    for i := 0; i < a.len; i++ {
-        arr << a[i].str()
     }
 
     return arr.str()
