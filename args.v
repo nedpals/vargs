@@ -19,8 +19,6 @@ fn parse_hypen_args(v string) []string {
 
     if v.starts_with('--') {
         delimitter = '--'
-    } else {
-        delimitter = '-'
     }
 
     val := v.replace(delimitter, '')
