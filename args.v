@@ -90,5 +90,7 @@ pub fn (a []Flag) get_flag(name string) ?Flag {
 }
 
 pub fn (v Args) str() string {
-    return '\{ command: ${v.command}, options: ${v.options.str()}, unknown: ${v.unknown.str()} \}'
+    opts_str := v.options.str().split('\n').join(' ')
+
+    return '\{ command: ${v.command}, options: ${opts_str}, unknown: ${v.unknown.str()} \}'
 }
