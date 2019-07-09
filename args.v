@@ -41,11 +41,12 @@ pub fn parse(a []string) Args {
         current := args[i]
         noHypens := !detect_hypen_args(prev) && !detect_hypen_args(current)
         
-        if !detect_hypen_args(current) {
-            if i == 0 {
+        if i == 0 && !detect_hypen_args(current) {
                 parsed.command = current
             }
 
+        if detect_hypen_args(prev) {
+            prevArg := parse_hypen_args(prev)
             parsed.options[prevArg[0]] = current
         }
 
