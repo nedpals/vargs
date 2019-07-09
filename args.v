@@ -30,8 +30,8 @@ fn detect_hypen_args(v string) bool {
     return v.starts_with('-')
 }
 
-pub fn parse(a []string) Args {
-    args := a.slice(1, a.len)
+pub fn parse(a []string, slice_num int) Args {
+    args := a.slice(slice_num, a.len)
 
     mut parsed := Args{'', map[string]string{}, []string}
 
