@@ -55,8 +55,7 @@ pub fn parse(a []string) Args {
         }
 
         if detect_hypen_args(current) {
-            arg := parse_hypen_args(string(current))
-            mut val := ''
+            arg := parse_hypen_args(current)
 
             if arg.len == 2 {
                 parsed.options[arg[0]] = arg[1]
