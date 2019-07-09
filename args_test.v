@@ -5,18 +5,20 @@
  * (c) 2019 Ned Palacios and its contributors.
  */
 
+import args
 
 fn parse_test() {
-    test_arr := ['hello', '-f', 'bar', '--foo', 'baz', '--lol=yey', '-t=test', '123']
+    test_arr := ['hello', '-f', 'bar', '--foo', 'baz', '--lol=yey', '-t=test', '123', '-n']
 
-    assert parse_args(test_arr) == Args{
+    assert args.parse(test_arr, 0) == Args{
         command: 'hello', 
-        options: [
-            Flag{name: 'f', value: 'bar'},
-            Flag{name: 'foo', value: 'baz'},
-            Flag{name: 'lol', value: 'yey'},
-            Flag{name: 't', value: 'test'}
-        ],
+        options: {
+            'f': 'bar',
+            'foo': 'baz',
+            'lol': 'yey',
+            't': 'test',
+            'n': ''
+        },
         unknown: ['123']
     }
 }
