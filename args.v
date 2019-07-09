@@ -36,10 +36,10 @@ pub fn parse(a []string) Args {
     mut parsed := Args{'', map[string]string{}, []string}
 
     for i := 0; i < args.len; i++ {
-
-        prev := if i-1 <= 0 { '' } else { args[i-1] }
         current := args[i]
-        noHypens := !detect_hypen_args(prev) && !detect_hypen_args(current)
+        next := if i+1 > args.len-1 { '' } else { args[i+1] }
+        prev := if i-1 <= 0 { '' } else { args[i-1] }
+        no_hyphens := !detect_hypen_args(prev) && !detect_hypen_args(current)
         
         if i == 0 && !detect_hypen_args(current) {
                 parsed.command = current
