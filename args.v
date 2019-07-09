@@ -1,5 +1,5 @@
 /**
- * V-Args 0.1.2
+ * V-Args 0.2
  * https://github.com/nedpals/v-args
  * 
  * (c) 2019 Ned Palacios and its contributors.
@@ -42,8 +42,8 @@ pub fn parse(a []string, slice_num int) Args {
         no_hyphens := !detect_hypen_args(prev) && !detect_hypen_args(current)
         
         if i == 0 && !detect_hypen_args(current) {
-                parsed.command = current
-            }
+            parsed.command = current
+        }
 
         if detect_hypen_args(prev) {
             prevArg := parse_hypen_args(prev)
@@ -59,11 +59,11 @@ pub fn parse(a []string, slice_num int) Args {
 
             if arg.len == 2 {
                 parsed.options[arg[0]] = arg[1]
-    }
+            }
 
             if arg.len == 1 && next.len == 0 {
                 parsed.options[arg[0]] = ''
-}
+            }
         }
     }
 
