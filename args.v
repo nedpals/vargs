@@ -50,7 +50,7 @@ pub fn parse(a []string) Args {
             parsed.options[prevArg[0]] = current
         }
 
-        if i != 0 && noHypens {
+        if i != 0 && no_hyphens {
             parsed.unknown << current
         }
 
