@@ -46,8 +46,8 @@ pub fn parse(a []string, slice_num int) Args {
         }
 
         if detect_hypen_args(prev) {
-            prevArg := parse_hypen_args(prev)
-            parsed.options[prevArg[0]] = current
+            prev_arg := parse_hypen_args(prev)
+            parsed.options[prev_arg[0]] = current
         }
 
         if i != 0 && no_hyphens {
