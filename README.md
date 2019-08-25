@@ -1,45 +1,56 @@
-# v-args 0.2
-V library for parsing arguments from argv-like arrays (like `os.args`). Ported from [this file](https://github.com/nedpals/kuman/blob/master/src/parser.ts) which was originally written on Typescript.
+# v-args 0.3
+A simple argument parsing library for [V](https://vlang.io). Ported from [this file](https://github.com/nedpals/kuman/blob/master/src/parser.ts) which was originally written on Typescript.
+
+> The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
 
 ```go
 // dummy.v
-import args
+import vargs
 import os
 
 fn main() {
     // Second argument removes the first argument which contains the path of the executable.
-    _args := args.parse(os.args, 1)
+    _args := vargs.parse(os.args, 1)
 
     println(_args.str())
     println(_args.command)
     println(_args.unknown[0])
-    println('with? ${_args.options['with']}')
+    println('with? ' + _args.options['with'])
 }
 ```
 
 ```bash
 ./dummy cook chicken --with love
-# { command: cook, options: { "with" => "love" }, unknown: ["chicken"] }
+# { command: "cook", options: {"with" => "love"}, unknown: ["chicken"] }
 # cook
 # chicken
 # with? love
 ```
 
 ## Installation
-1. Clone the repo. (`git clone https://github.com/nedpals/v-args args`)
-2. Copy the folder inside the `vlib` folder.*
+Via vpm:
+```
+v install nedpals.args
+```
 
-**\*Note: The `vlib` folder is located where your V compiler is also located.**
+Via [vpkg](https://github.com/v-pkg/vpkg):
+```
+vpkg get vargs
+```
 
-## Changes in `0.2`
-1. `Flag` structs and it's related functions (such as `get_flag()` and `get()`) are removed. Replaced with `maps`.
-2. The `parse` function now accepts a second argument that removes the first `n` elements in the array. Helpful if you want to only parse arguments after the name of the app/executable. Otherwise, set it to 0.
-3. Major refactoring and fixing of the library.
+or
 
-## Notes
-1. The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
-2. ~~Options will turn into `maps` in the future once `maps` will be fully implemented in V.~~
-3. ~~`args.options.get_flag()` returns the full Flag struct while `args.options.get()` returns the value of the specified option.~~
+```
+vpkg get https://github.com/nedpals/v-args
+```
+
+After installing, rename the folder from `v-args/` to `vargs/`.
+
+## Breaking Changes in `0.3`
+1. Module name renamed from `args` to `vargs` to avoid conflicts.
+2. `0.3` now requires V `0.1.18` and above because of the revised initialization of maps.
+3. Renaming of internal functions and better formatting when converting `Args` struct to string.
+4. Final stable release? Hmmm
 
 ## Contributing
 1. Fork it (<https://github.com/nedpals/v-args/fork>)
