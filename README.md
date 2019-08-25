@@ -1,4 +1,4 @@
-# v-args 0.3
+# vargs 0.3
 A simple argument parsing library for [V](https://vlang.io). Ported from [this file](https://github.com/nedpals/kuman/blob/master/src/parser.ts) which was originally written on Typescript.
 
 > The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
@@ -36,15 +36,11 @@ v install nedpals.args
 Via [vpkg](https://github.com/v-pkg/vpkg):
 ```
 vpkg get vargs
-```
 
-or
+# or
 
+vpkg get https://github.com/nedpals/vargs
 ```
-vpkg get https://github.com/nedpals/v-args
-```
-
-After installing, rename the folder from `v-args/` to `vargs/`.
 
 ## Breaking Changes in `0.3`
 1. Module name renamed from `args` to `vargs` to avoid conflicts.
@@ -53,7 +49,7 @@ After installing, rename the folder from `v-args/` to `vargs/`.
 4. Final stable release? Hmmm
 
 ## Contributing
-1. Fork it (<https://github.com/nedpals/v-args/fork>)
+1. Fork it (<https://github.com/nedpals/vargs/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

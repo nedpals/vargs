@@ -1,6 +1,6 @@
 /**
- * V-Args 0.3
- * https://github.com/nedpals/v-args
+ * vargs 0.3
+ * https://github.com/nedpals/vargs
  * 
  * (c) 2019 Ned Palacios and its contributors.
  */
