@@ -7,13 +7,13 @@
 import vargs
 
 fn parse_test() {
-    test_arr := ['hello', '-f', 'bar', '--foo', 'baz', '--lol=yey', '-t=test', '123', '-n']
+    test_arr := ['hello', '-f', 'bar', '--foo', 'baz', '--lol=yey', '-t=test', '123', '-n', '--foo', 'bal']
 
     assert vargs.parse(test_arr, 0) == Args{
         command: 'hello', 
         options: {
             'f': 'bar',
-            'foo': 'baz',
+            'foo': 'baz,bal',
             'lol': 'yey',
             't': 'test',
             'n': ''
