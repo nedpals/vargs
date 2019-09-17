@@ -30,7 +30,7 @@ fn main() {
 ## Installation
 Via vpm:
 ```
-v install nedpals.args
+v install nedpals.vargs
 ```
 
 Via [vpkg](https://github.com/v-pkg/vpkg):
