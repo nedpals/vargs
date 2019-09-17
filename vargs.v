@@ -76,6 +76,12 @@ pub fn parse(a []string, start int) Args {
     return parsed
 }
 
+pub fn (v Args) array_option(name string) []string {
+    opt_values := v.options[name].split(',')
+
+    return opt_values
+}
+
 pub fn (v Args) str() string {
     mut opts := v.options.str().split_into_lines()
     for i, el in opts { opts[i] = el.trim_space() }
