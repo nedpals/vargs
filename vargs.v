@@ -68,7 +68,7 @@ pub fn parse(a []string, start int) Args {
             }
 
             if opt.len == 1 && next.len == 0 {
-                parsed.options[arg[0]] = ''
+                parsed.options[opt[0]] = ''
             }
         }
     }
