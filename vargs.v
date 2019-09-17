@@ -1,5 +1,5 @@
 /**
- * vargs 0.3
+ * vargs 0.4
  * https://github.com/nedpals/vargs
  * 
  * (c) 2019 Ned Palacios and its contributors.
@@ -45,8 +45,8 @@ pub fn parse(a []string, start int) Args {
                 existing_opt_val := parsed.options[prev_opt[0]]
                 parsed.options[prev_opt[0]] = '${existing_opt_val},${curr}'
             } else {
-            parsed.options[prev_opt[0]] = curr
-        }
+                parsed.options[prev_opt[0]] = curr
+            }
         }
 
         if i != 0 && (!starts_with_hypen(prev) && !starts_with_hypen(curr)) {
@@ -63,8 +63,8 @@ pub fn parse(a []string, start int) Args {
                     existing_opt_val := parsed.options[opt[0]]
                     parsed.options[opt[0]] = '${existing_opt_val},${curr}'
                 } else {
-                parsed.options[opt[0]] = opt[1]
-            }
+                    parsed.options[opt[0]] = opt[1]
+                }
             }
 
             if opt.len == 1 && next.len == 0 {

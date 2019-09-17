@@ -1,5 +1,5 @@
 /**
- * vargs 0.3
+ * vargs 0.4
  * https://github.com/nedpals/vargs
  * 
  * (c) 2019 Ned Palacios and its contributors.
