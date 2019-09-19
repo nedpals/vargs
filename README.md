@@ -1,4 +1,4 @@
-# vargs 0.4
+# vargs 0.4.1
 A simple argument parsing library for [V](https://vlang.io). Ported from [this file](https://github.com/nedpals/kuman/blob/master/src/parser.ts) which was originally written on Typescript.
 
 > The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
@@ -42,12 +42,16 @@ vpkg get vargs
 vpkg get https://github.com/nedpals/vargs
 ```
 
-## Breaking Changes in `0.4`
+## Changes in `0.4`
 1. Use comma-separated values of an option as array of strings with the `array_option(name)` function
 2. Fixed unused variable error.
 3. Options values are now merged if the name of the option has already existed.
 4. Fixed problem when installing module from VPM. #2
 5. Final stable release? Hmmm
+
+### `0.4.1`
+1. Merge duplicate codes into a function.
+2. Fixed another unused variable error.
 
 ## Contributing
 1. Fork it (<https://github.com/nedpals/vargs/fork>)
