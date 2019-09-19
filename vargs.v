@@ -25,6 +25,15 @@ fn starts_with_hypen(v string) bool {
     return v.starts_with('-')
 }
 
+fn (v mut Args) insert_option(name string, val string) {
+    if name in v.options {
+        existing_opt_val := v.options[name]
+        parsed.options[name] = '${existing_opt_val},${val}'
+    } else {
+        parsed.options[name] = val
+    }
+}
+
 pub fn parse(a []string, start int) Args {
     args := a.slice(start, a.len)
     mut parsed := Args{'', map[string]string, []string}
@@ -40,13 +49,7 @@ pub fn parse(a []string, start int) Args {
 
         if starts_with_hypen(prev) {
             prev_opt := parse_option(prev)
-
-            if prev_opt[0] in parsed.options {
-                existing_opt_val := parsed.options[prev_opt[0]]
-                parsed.options[prev_opt[0]] = '${existing_opt_val},${curr}'
-            } else {
-                parsed.options[prev_opt[0]] = curr
-            }
+            parsed.insert_option(prev_opt[0], curr)
         }
 
         if i != 0 && (!starts_with_hypen(prev) && !starts_with_hypen(curr)) {
@@ -57,14 +60,7 @@ pub fn parse(a []string, start int) Args {
             opt := parse_option(curr)
 
             if opt.len == 2 {
-                opt_val := opt[1]
-
-                if opt[0] in parsed.options {
-                    existing_opt_val := parsed.options[opt[0]]
-                    parsed.options[opt[0]] = '${existing_opt_val},${curr}'
-                } else {
-                    parsed.options[opt[0]] = opt[1]
-                }
+                parsed.insert_option(opt[0], opt[1])
             }
 
             if opt.len == 1 && next.len == 0 {
