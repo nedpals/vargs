@@ -28,9 +28,9 @@ fn starts_with_hypen(v string) bool {
 fn (v mut Args) insert_option(name string, val string) {
     if name in v.options {
         existing_opt_val := v.options[name]
-        parsed.options[name] = '${existing_opt_val},${val}'
+        v.options[name] = '${existing_opt_val},${val}'
     } else {
-        parsed.options[name] = val
+        v.options[name] = val
     }
 }
 
