@@ -1,4 +1,4 @@
-# vargs 0.4.1
+# vargs 0.4.2
 A simple argument parsing library for [V](https://vlang.io). Ported from [this file](https://github.com/nedpals/kuman/blob/master/src/parser.ts) which was originally written on Typescript.
 
 > The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
@@ -53,12 +53,25 @@ vpkg get https://github.com/nedpals/vargs
 1. Merge duplicate codes into a function.
 2. Fixed another unused variable error.
 
+### `0.4.2`
+1. Fixed parsing errors when used in complex scenarios.
+2. Add proper tests.
+3. Now only works with `0.1.22` and above.
+4. Fixed maps formatting when converting `Args` to string.
+5. Partial refactoring of code including converting `if` statements to `match`
+
 ## Contributing
 1. Fork it (<https://github.com/nedpals/vargs/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Testing
+To test the module, just type the following command:
+```
+./test.sh
+```
 
 ## License
 [MIT](LICENSE)
