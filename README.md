@@ -1,4 +1,4 @@
-# vargs 0.4.2
+# vargs 0.4.3
 A simple argument parsing library for [V](https://vlang.io). Ported from [this file](https://github.com/nedpals/kuman/blob/master/src/parser.ts) which was originally written on Typescript.
 
 > The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
@@ -59,6 +59,9 @@ vpkg get https://github.com/nedpals/vargs
 3. Now only works with `0.1.22` and above.
 4. Fixed maps formatting when converting `Args` to string.
 5. Partial refactoring of code including converting `if` statements to `match`
+
+### `0.4.3`
+1. Fix breaking changes when compiling on V `0.1.23`
 
 ## Contributing
 1. Fork it (<https://github.com/nedpals/vargs/fork>)
