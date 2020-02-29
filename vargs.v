@@ -1,5 +1,5 @@
 /**
- * vargs 0.4.3
+ * vargs 0.5
  * https://github.com/nedpals/vargs
  * 
  * (c) 2019 Ned Palacios and its contributors.
@@ -13,6 +13,7 @@ pub struct Args {
 pub mut:
     command string = ''
     options map[string]string = map[string]string
+    aliases map[string]string = map[string]string
     unknown []string = []string
 }
 
@@ -28,8 +29,10 @@ fn starts_with_hypen(v string) bool {
 }
 
 fn (v mut Args) insert_option(name string, val string) {
-    v.options[name] = if name in v.options {
-        v.options[name] + ',' + val
+    insert_name := if name in v.aliases { v.aliases[name] } else { name }
+
+    v.options[insert_name] = if insert_name in v.options {
+        v.options[insert_name] + ',' + val
     } else {
         val
     }
@@ -80,6 +83,10 @@ pub fn (v Args) array_option(name string) []string {
     opt_values := v.options[name].split(',')
 
     return opt_values
+}
+
+pub fn (v mut Args) alias(orig string, dest string) {
+    v.aliases[orig] = dest
 }
 
 pub fn (v Args) str() string {
