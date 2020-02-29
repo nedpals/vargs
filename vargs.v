@@ -35,6 +35,9 @@ fn (v mut Args) insert_option(name string, val string) {
     }
 }
 
+pub fn parse(a []string, start int) {
+    panic('vargs.parse is deprecated. Use `vargs.new` instead.')
+}
 
 pub fn new(a []string, start_at int) Args {
     return Args{ orig: a, start: start_at }
