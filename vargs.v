@@ -11,9 +11,9 @@ pub struct Args {
     orig []string
     start int
 pub mut:
-    command string
-    options map[string]string
-    unknown []string
+    command string = ''
+    options map[string]string = map[string]string
+    unknown []string = []string
 }
 
 fn parse_option(v string) []string {
