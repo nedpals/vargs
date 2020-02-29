@@ -40,6 +40,7 @@ pub fn new(a []string, start_at int) Args {
     return Args{ orig: a, start: start_at }
 }
 
+pub fn (v mut Args) parse() Args {
     args := v.orig[v.start..v.orig.len]
 
     for i, curr in args {
@@ -47,29 +48,29 @@ pub fn new(a []string, start_at int) Args {
         prev := if i-1 <= 0 { '' } else { args[i-1] }
         
         if i == 0 && !starts_with_hypen(curr) {
-            parsed.command = curr
+            v.command = curr
         }
 
         if (starts_with_hypen(prev) && parse_option(prev).len == 1) && !starts_with_hypen(curr) {
             prev_opt := parse_option(prev)
-            parsed.insert_option(prev_opt[0], curr)
+            v.insert_option(prev_opt[0], curr)
         }
 
         if starts_with_hypen(curr) {
             opt := parse_option(curr)
             match opt.len {
-                1 { if next.len == 0 { parsed.options[opt[0]] = '' } }
-                2 { parsed.insert_option(opt[0], opt[1]) }
+                1 { if next.len == 0 { v.options[opt[0]] = '' } }
+                2 { v.insert_option(opt[0], opt[1]) }
                 else {}
             }
         }
 
         if i != 0 && (!starts_with_hypen(prev) || parse_option(prev).len == 2) && !starts_with_hypen(curr) {
-            parsed.unknown << curr
+            v.unknown << curr
         }
     }
 
-    return parsed
+    return v
 }
 
 pub fn (v Args) array_option(name string) []string {
