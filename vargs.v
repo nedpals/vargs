@@ -8,6 +8,8 @@
 module vargs
 
 pub struct Args {
+    orig []string
+    start int
 pub mut:
     command string
     options map[string]string
@@ -33,9 +35,12 @@ fn (v mut Args) insert_option(name string, val string) {
     }
 }
 
-pub fn parse(a []string, start int) Args {
-    args := a[start..a.len]
-    mut parsed := Args{'', map[string]string, []string}
+
+pub fn new(a []string, start_at int) Args {
+    return Args{ orig: a, start: start_at }
+}
+
+    args := v.orig[v.start..v.orig.len]
 
     for i, curr in args {
         next := if i+1 > args.len-1 { '' } else { args[i+1] }
