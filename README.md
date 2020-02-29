@@ -1,4 +1,4 @@
-# vargs 0.4.3
+# vargs 0.5
 A simple argument parsing library for [V](https://vlang.io). Ported from [this file](https://github.com/nedpals/kuman/blob/master/src/parser.ts) which was originally written on Typescript.
 
 > The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
@@ -48,6 +48,12 @@ vpkg get vargs
 vpkg get https://github.com/nedpals/vargs
 ```
 
+## Changes in `0.5`
+1. Breaking change on the usage of the library.
+2. `alias(orig, dest)` for mapping options to existing ones.
+3. Array and the `start` index are now moved into the `Args` struct as internal fields.
+4. Default values are now moved inside the declaration of the `Args` struct.
+
 ## Changes in `0.4`
 1. Use comma-separated values of an option as array of strings with the `array_option(name)` function
 2. Fixed unused variable error.
@@ -79,7 +85,7 @@ vpkg get https://github.com/nedpals/vargs
 ## Testing
 To test the module, just type the following command:
 ```
-./test.sh
+v test vargs_test.v
 ```
 
 ## License
