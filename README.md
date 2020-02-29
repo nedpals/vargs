@@ -3,14 +3,20 @@ A simple argument parsing library for [V](https://vlang.io). Ported from [this f
 
 > The version of this module will remain in `0.x.x` unless the language API's are finalized and implemented.
 
-```go
+```v
 // dummy.v
-import vargs
+import vargs // or import nedpals.vargs for vpm users
 import os
 
 fn main() {
     // Second argument removes the first argument which contains the path of the executable.
-    _args := vargs.parse(os.args, 1)
+    mut _args := vargs.new(os.args, 1)
+    
+    // Use the `alias` method if you want to map an option to an existing option.
+    _args.alias('W', 'with')
+
+    // Parsing is now a separate step
+    _args.parse()
 
     println(_args.str())
     println(_args.command)
@@ -20,11 +26,11 @@ fn main() {
 ```
 
 ```bash
-./dummy cook chicken --with love
+./dummy cook chicken --with love -W soul
 # { command: "cook", options: {"with" => "love"}, unknown: ["chicken"] }
 # cook
 # chicken
-# with? love
+# with? love,soul
 ```
 
 ## Installation
@@ -33,7 +39,7 @@ Via vpm:
 v install nedpals.vargs
 ```
 
-Via [vpkg](https://github.com/v-pkg/vpkg):
+Via [vpkg](https://github.com/vpkg-project/vpkg):
 ```
 vpkg get vargs
 
