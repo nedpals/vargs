@@ -11,7 +11,8 @@ const (
 )
 
 fn test_parse() {
-    a := vargs.parse(test_arr, 0)
+    mut a := vargs.new(test_arr, 0)
+    a.parse()
 
     assert a.command == 'hello'
     assert a.options['f'] == 'bar'
@@ -23,16 +24,26 @@ fn test_parse() {
 }
 
 fn test_str() {
-    a := vargs.parse(test_arr, 0)
+    mut a := vargs.new(test_arr, 0)
+    a.parse()
 
     assert a.str() == '\{ command: "hello", options: { "f" => "bar" "foo" => "baz,bal" "lol" => "yey" "t" => "test" }, unknown: ["123"] \}'
 }
 
 fn test_array_option() {
-    a := vargs.parse(test_arr, 0)
+    mut a := vargs.new(test_arr, 0)
+    a.parse()
     option_arr := a.array_option('foo')
 
     assert option_arr.len == 2
     assert option_arr[0] == 'baz'
     assert option_arr[1] == 'bal'
+}
+
+fn test_alias() {
+    mut a := vargs.new(test_arr, 0)
+    a.alias('f', 'foo')
+    a.parse()
+
+    assert a.options['foo'] == 'bar,baz,bal'
 }
