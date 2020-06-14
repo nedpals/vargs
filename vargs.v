@@ -1,7 +1,7 @@
 /**
  * vargs 0.5
  * https://github.com/nedpals/vargs
- * 
+ *
  * (c) 2019 Ned Palacios and its contributors.
  */
 
@@ -14,11 +14,11 @@ pub mut:
     command string = ''
     options map[string]string = map[string]string
     aliases map[string]string = map[string]string
-    unknown []string = []string
+    unknown []string = []string{}
 }
 
 fn parse_option(v string) []string {
-    delimitter := if v.starts_with('--') { '--' } else { '-' } 
+    delimitter := if v.starts_with('--') { '--' } else { '-' }
     val := v.replace(delimitter, '')
 
     return val.split('=')
@@ -28,7 +28,7 @@ fn starts_with_hypen(v string) bool {
     return v.starts_with('-') || v.starts_with('--')
 }
 
-fn (v mut Args) insert_option(name string, val string) {
+fn (mut v Args) insert_option(name string, val string) {
     insert_name := if name in v.aliases { v.aliases[name] } else { name }
 
     v.options[insert_name] = if insert_name in v.options {
@@ -46,13 +46,13 @@ pub fn new(a []string, start_at int) Args {
     return Args{ orig: a, start: start_at }
 }
 
-pub fn (v mut Args) parse() Args {
+pub fn (mut v Args) parse() Args {
     args := v.orig[v.start..v.orig.len]
 
     for i, curr in args {
         next := if i+1 > args.len-1 { '' } else { args[i+1] }
         prev := if i-1 <= 0 { '' } else { args[i-1] }
-        
+
         if i == 0 && !starts_with_hypen(curr) {
             v.command = curr
         }
@@ -85,7 +85,7 @@ pub fn (v Args) array_option(name string) []string {
     return opt_values
 }
 
-pub fn (v mut Args) alias(orig string, dest string) {
+pub fn (mut v Args) alias(orig string, dest string) {
     v.aliases[orig] = dest
 }
 
